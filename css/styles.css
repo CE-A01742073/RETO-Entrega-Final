@@ -1,0 +1,1763 @@
+/* Variables de diseño con colores y tipografía corporativa Whirlpool */
+:root {
+    /* Tipografía corporativa */
+    --font-headline: 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Colores principales de Whirlpool - OFICIALES */
+    --whirlpool-accomplished-blue: #003C64;  /* PMS 7694 */
+    --whirlpool-accent-blue: #0096DC;        /* PMS 299 */
+    --whirlpool-light-accent: #E6F0FA;       /* PMS 299 @ 10% */
+    --whirlpool-black: #141414;              /* Black 100% */
+    
+    /* Variaciones de los colores principales */
+    --primary-blue: #003C64;
+    --primary-blue-dark: #002A47;
+    --primary-blue-light: #0096DC;
+    --accent-blue: #0096DC;
+    --accent-blue-dark: #0077B6;
+    
+    /* Colores de soporte para íconos */
+    --accent-green: #00C853;
+    --accent-orange: #FF6D00;
+    --accent-red: #D32F2F;
+    
+    /* Escala de grises */
+    --neutral-900: #1A1A1A;
+    --neutral-800: #2D2D2D;
+    --neutral-700: #4A4A4A;
+    --neutral-600: #6B6B6B;
+    --neutral-500: #8C8C8C;
+    --neutral-400: #ADADAD;
+    --neutral-300: #D4D4D4;
+    --neutral-200: #E8E8E8;
+    --neutral-100: #F5F5F5;
+    --neutral-white: #FFFFFF;
+    
+    /* Gradientes corporativos */
+    --gradient-primary: linear-gradient(135deg, #003C64 0%, #0096DC 100%);
+    --gradient-secondary: linear-gradient(135deg, #0096DC 0%, #00AEEF 100%);
+    --gradient-dark: linear-gradient(135deg, #002A47 0%, #003C64 100%);
+    
+    /* Sombras */
+    --shadow-xs: 0 1px 2px 0 rgba(0, 60, 100, 0.05);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 60, 100, 0.1), 0 1px 2px 0 rgba(0, 60, 100, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 60, 100, 0.1), 0 2px 4px -1px rgba(0, 60, 100, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 60, 100, 0.1), 0 4px 6px -2px rgba(0, 60, 100, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 60, 100, 0.1), 0 10px 10px -5px rgba(0, 60, 100, 0.04);
+    
+    /* Radios */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 9999px;
+    
+    /* Transiciones */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--neutral-800);
+    background: var(--neutral-100);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Aplicar fuentes según la jerarquía */
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.section-title,
+.form-title,
+.course-title,
+.feature-title,
+.panel-title,
+.nav-brand,
+.brand-name {
+    font-family: var(--font-headline);
+}
+
+/* Textos de cuerpo */
+p, span, a, li, label, input, select, textarea {
+    font-family: var(--font-body);
+}
+
+/* Estilos específicos para títulos */
+h1 {
+    font-family: var(--font-headline);
+    font-weight: 800;
+}
+
+h2, h3 {
+    font-family: var(--font-headline);
+    font-weight: 700;
+}
+
+h4, h5, h6 {
+    font-family: var(--font-headline);
+    font-weight: 600;
+}
+
+/* Botones principales con Nunito Sans Bold */
+.btn-hero-primary,
+.btn-nav-primary,
+.btn-submit,
+.btn-primary-large,
+button[type="submit"] {
+    font-family: var(--font-headline);
+    font-weight: 700;
+}
+
+/* Botones secundarios con Open Sans Bold */
+.btn-hero-secondary,
+.btn-secondary-link,
+.btn-course {
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+/* CTAs con Open Sans Bold */
+.btn-enroll,
+.btn-continue {
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+/* Subtítulos con Open Sans Regular */
+.hero-description,
+.section-description,
+.form-description,
+.panel-subtitle {
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+/* Labels y textos pequeños con Open Sans SemiBold */
+.form-label,
+.stat-label,
+.checkbox-label,
+.lesson-type,
+.category-btn {
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+/* Navegación superior */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--neutral-200);
+    z-index: 1000;
+    padding: 0;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--whirlpool-accomplished-blue);
+    text-decoration: none;
+}
+
+.brand-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--whirlpool-accomplished-blue);
+}
+
+.brand-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    color: var(--neutral-700);
+    text-decoration: none;
+    font-weight: 500;
+    font-family: var(--font-body);
+    transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--whirlpool-accent-blue);
+}
+
+.btn-nav-primary {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.625rem 1.5rem;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-nav-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Sección Hero */
+.hero-section {
+    padding: 120px 2rem 80px;
+    background: linear-gradient(180deg, var(--neutral-white) 0%, var(--whirlpool-light-accent) 100%);
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--whirlpool-light-accent);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+    color: var(--whirlpool-accomplished-blue);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(0, 153, 216, 0.2);
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--whirlpool-accent-blue);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--whirlpool-accomplished-blue);
+    margin-bottom: 1.5rem;
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--neutral-600);
+    margin-bottom: 2.5rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.btn-hero-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gradient-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-hero-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+}
+
+.btn-hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    color: var(--whirlpool-accomplished-blue);
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.125rem;
+    border: 2px solid var(--whirlpool-accomplished-blue);
+    transition: all var(--transition-base);
+}
+
+.btn-hero-secondary:hover {
+    background: var(--whirlpool-light-accent);
+    border-color: var(--whirlpool-accent-blue);
+    color: var(--whirlpool-accent-blue);
+}
+
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    color: var(--whirlpool-accent-blue);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--neutral-600);
+    margin-top: 0.25rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--neutral-300);
+}
+
+/* Visualizaciones hero */
+.hero-visual {
+    position: relative;
+    height: 500px;
+}
+
+.visual-card {
+    position: absolute;
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-xl);
+    animation: float 6s ease-in-out infinite;
+    border: 1px solid var(--whirlpool-light-accent);
+}
+
+.visual-card-1 {
+    top: 20%;
+    left: 0;
+    width: 280px;
+}
+
+.visual-card-2 {
+    bottom: 20%;
+    right: 0;
+    width: 220px;
+    animation-delay: -3s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.card-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+}
+
+.card-title {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    color: var(--whirlpool-accomplished-blue);
+    margin-bottom: 0.75rem;
+}
+
+.card-progress {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--whirlpool-light-accent);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient-secondary);
+    border-radius: var(--radius-full);
+    transition: width var(--transition-slow);
+}
+
+.progress-text {
+    font-weight: 700;
+    font-family: var(--font-body);
+    color: var(--whirlpool-accent-blue);
+    font-size: 0.875rem;
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-text {
+    text-align: center;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    color: var(--whirlpool-accomplished-blue);
+}
+
+/* Sección de características */
+.features-section {
+    padding: 80px 2rem;
+    background: var(--neutral-white);
+}
+
+.section-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.section-label {
+    display: inline-block;
+    color: var(--whirlpool-accent-blue);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    color: var(--whirlpool-accomplished-blue);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.section-description {
+    font-size: 1.125rem;
+    color: var(--neutral-600);
+    line-height: 1.8;
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.feature-item {
+    background: var(--neutral-white);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--neutral-200);
+    transition: all var(--transition-base);
+}
+
+.feature-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--whirlpool-accent-blue);
+}
+
+.feature-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.feature-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: white;
+    stroke-width: 2;
+}
+
+/* Íconos de features con colores corporativos Whirlpool */
+.feature-icon-accomplished,
+.feature-icon-blue { 
+    background: #003C64 !important;
+    background: linear-gradient(135deg, #003C64 0%, #0096DC 100%) !important;
+}
+
+.feature-icon-accent,
+.feature-icon-purple { 
+    background: #0096DC !important;
+    background: linear-gradient(135deg, #0096DC 0%, #00AEEF 100%) !important;
+}
+
+.feature-icon-green { 
+    background: #00C853 !important;
+    background: linear-gradient(135deg, #00C853 0%, #00E676 100%) !important;
+}
+
+.feature-icon-orange { 
+    background: #FF6D00 !important;
+    background: linear-gradient(135deg, #FF6D00 0%, #FF9100 100%) !important;
+}
+
+.feature-icon-red { 
+    background: #D32F2F !important;
+    background: linear-gradient(135deg, #D32F2F 0%, #F44336 100%) !important;
+}
+
+.feature-icon-dark,
+.feature-icon-indigo { 
+    background: #002A47 !important;
+    background: linear-gradient(135deg, #002A47 0%, #003C64 100%) !important;
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    color: var(--whirlpool-accomplished-blue);
+    margin-bottom: 0.75rem;
+}
+
+.feature-description {
+    color: var(--neutral-600);
+    line-height: 1.7;
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+/* Footer corporativo */
+.main-footer {
+    background: var(--whirlpool-accomplished-blue);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 3rem 2rem 2rem;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    color: var(--neutral-white);
+}
+
+.footer-logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.footer-icon {
+    width: 32px;
+    height: 32px;
+    stroke: var(--whirlpool-accent-blue);
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.footer-column h4 {
+    color: var(--neutral-white);
+    font-family: var(--font-headline);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-column a {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    font-family: var(--font-body);
+    transition: color var(--transition-fast);
+}
+
+.footer-column a:hover {
+    color: var(--whirlpool-accent-blue);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-body);
+}
+
+.footer-legal {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-family: var(--font-body);
+    transition: color var(--transition-fast);
+}
+
+.footer-legal a:hover {
+    color: var(--whirlpool-accent-blue);
+}
+
+.footer-legal span {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Página de autenticación con colores Whirlpool */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #003C64 0%, #0096DC 100%);
+    padding: 2rem 1rem;
+}
+
+/* Animación de burbujas */
+.bubbles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(0, 153, 216, 0.15);
+    border-radius: 50%;
+    animation: rise 15s infinite ease-in;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bubble-1 {
+    width: 80px;
+    height: 80px;
+    left: 10%;
+    animation-duration: 12s;
+    animation-delay: 0s;
+}
+
+.bubble-2 {
+    width: 60px;
+    height: 60px;
+    left: 20%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+
+.bubble-3 {
+    width: 100px;
+    height: 100px;
+    left: 30%;
+    animation-duration: 16s;
+    animation-delay: 4s;
+}
+
+.bubble-4 {
+    width: 70px;
+    height: 70px;
+    left: 45%;
+    animation-duration: 13s;
+    animation-delay: 1s;
+}
+
+.bubble-5 {
+    width: 90px;
+    height: 90px;
+    left: 55%;
+    animation-duration: 15s;
+    animation-delay: 3s;
+}
+
+.bubble-6 {
+    width: 50px;
+    height: 50px;
+    left: 65%;
+    animation-duration: 11s;
+    animation-delay: 5s;
+}
+
+.bubble-7 {
+    width: 110px;
+    height: 110px;
+    left: 75%;
+    animation-duration: 17s;
+    animation-delay: 2s;
+}
+
+.bubble-8 {
+    width: 65px;
+    height: 65px;
+    left: 85%;
+    animation-duration: 14s;
+    animation-delay: 4s;
+}
+
+.bubble-9 {
+    width: 75px;
+    height: 75px;
+    left: 5%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+}
+
+.bubble-10 {
+    width: 95px;
+    height: 95px;
+    left: 90%;
+    animation-duration: 16s;
+    animation-delay: 1s;
+}
+
+@keyframes rise {
+    0% {
+        bottom: -100px;
+        transform: translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 110%;
+        transform: translateX(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Contenedor de autenticación */
+.auth-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    position: relative;
+    z-index: 1;
+    margin: auto;
+}
+
+.auth-container {
+    background: white;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 60, 100, 0.3);
+    display: grid;
+    grid-template-columns: 45% 55%;
+    max-height: 90vh;
+}
+
+/* Panel informativo con colores Whirlpool */
+.auth-panel {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+/* Logo en el panel de login */
+.panel-logo {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-bottom: 3rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.panel-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    max-height: 140px;
+}
+
+.panel-title {
+    font-size: 1.875rem;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.panel-subtitle {
+    font-size: 1.0625rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+    opacity: 0.95;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+}
+
+.panel-features {
+    margin-bottom: 2rem;
+}
+
+.panel-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.check-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    opacity: 0.9;
+    margin-top: 2px;
+}
+
+.panel-feature span {
+    line-height: 1.5;
+    opacity: 0.95;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+.panel-quote {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--whirlpool-accent-blue);
+    backdrop-filter: blur(10px);
+}
+
+.panel-quote p {
+    font-style: italic;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    font-size: 1rem;
+    font-family: var(--font-body);
+}
+
+.quote-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.quote-author strong {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.quote-author span {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    font-family: var(--font-body);
+}
+
+/* Panel de formulario */
+.auth-form-panel {
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.auth-form-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.auth-form-panel::-webkit-scrollbar-track {
+    background: var(--neutral-100);
+}
+
+.auth-form-panel::-webkit-scrollbar-thumb {
+    background: var(--whirlpool-accent-blue);
+    border-radius: 3px;
+}
+
+.auth-form-panel::-webkit-scrollbar-thumb:hover {
+    background: var(--whirlpool-accomplished-blue);
+}
+
+.form-header {
+    margin-bottom: 1.5rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--neutral-600);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+    color: var(--whirlpool-accent-blue);
+}
+
+.form-title {
+    font-size: 1.75rem;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    color: var(--whirlpool-accomplished-blue);
+    margin-bottom: 0.5rem;
+}
+
+.form-description {
+    color: var(--neutral-600);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+}
+
+/* Formularios */
+.auth-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--whirlpool-accomplished-blue);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--neutral-400);
+    pointer-events: none;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    border: 2px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    transition: all var(--transition-fast);
+    background: var(--neutral-white);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--whirlpool-accent-blue);
+    box-shadow: 0 0 0 3px rgba(0, 153, 216, 0.1);
+}
+
+.form-input::placeholder {
+    color: var(--neutral-400);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.form-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--neutral-300);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    transition: all var(--transition-fast);
+    background: var(--neutral-white);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236B6B6B' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    padding-right: 2.5rem;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--whirlpool-accent-blue);
+    box-shadow: 0 0 0 3px rgba(0, 153, 216, 0.1);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    gap: 0.5rem;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--whirlpool-accent-blue);
+}
+
+.checkbox-label {
+    font-size: 0.875rem;
+    color: var(--neutral-700);
+    font-family: var(--font-body);
+    user-select: none;
+}
+
+.link-text {
+    font-size: 0.875rem;
+    color: var(--whirlpool-accent-blue);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    transition: color var(--transition-fast);
+    white-space: nowrap;
+}
+
+.link-text:hover {
+    color: var(--whirlpool-accomplished-blue);
+}
+
+.link-inline {
+    color: var(--whirlpool-accent-blue);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+
+.link-inline:hover {
+    text-decoration: underline;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.875rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+    margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.form-divider {
+    text-align: center;
+    margin: 1.25rem 0;
+    position: relative;
+}
+
+.form-divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background: var(--neutral-200);
+}
+
+.form-divider span {
+    position: relative;
+    background: white;
+    padding: 0 1rem;
+    color: var(--neutral-500);
+    font-size: 0.875rem;
+    font-family: var(--font-body);
+}
+
+.btn-secondary-link {
+    display: block;
+    width: 100%;
+    padding: 0.875rem;
+    text-align: center;
+    background: white;
+    color: var(--whirlpool-accomplished-blue);
+    border: 2px solid var(--whirlpool-accomplished-blue);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.btn-secondary-link:hover {
+    background: var(--whirlpool-light-accent);
+    border-color: var(--whirlpool-accent-blue);
+    color: var(--whirlpool-accent-blue);
+}
+
+/* Scrollbars personalizadas con colores Whirlpool */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--whirlpool-accent-blue) var(--whirlpool-light-accent);
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--whirlpool-light-accent);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--whirlpool-accent-blue);
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--whirlpool-accomplished-blue);
+}
+
+/* Alertas de mensajes */
+.alert {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert svg {
+    flex-shrink: 0;
+}
+
+.alert-error {
+    background: #FEE2E2;
+    color: #991B1B;
+    border: 1px solid #FCA5A5;
+}
+
+.alert-success {
+    background: #D1FAE5;
+    color: #065F46;
+    border: 1px solid #6EE7B7;
+}
+
+.alert-warning {
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FCD34D;
+}
+
+.alert-info {
+    background: var(--whirlpool-light-accent);
+    color: var(--whirlpool-accomplished-blue);
+    border: 1px solid var(--whirlpool-accent-blue);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .hero-visual {
+        height: 400px;
+    }
+    
+    .auth-container {
+        grid-template-columns: 1fr;
+        max-height: none;
+    }
+    
+    .auth-panel {
+        display: none;
+    }
+    
+    .auth-form-panel {
+        max-height: none;
+        padding: 2rem 1.5rem;
+    }
+    
+    .panel-logo {
+        max-width: 240px;
+    }
+    
+    .panel-logo img {
+        max-height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+    }
+    
+    .btn-hero-primary,
+    .btn-hero-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .panel-logo {
+        max-width: 200px;
+        margin-bottom: 2rem;
+    }
+    
+    .panel-logo img {
+        max-height: 80px;
+    }
+    
+    .panel-title {
+        font-size: 1.625rem;
+    }
+    
+    .panel-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 1rem;
+    }
+    
+    .brand-name {
+        font-size: 1rem;
+    }
+    
+    .hero-section {
+        padding: 100px 1rem 60px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .auth-wrapper {
+        padding: 1rem 0.5rem;
+    }
+    
+    .auth-form-panel {
+        padding: 1.5rem 1rem;
+    }
+    
+    .form-title {
+        font-size: 1.5rem;
+    }
+    
+    .panel-logo {
+        max-width: 180px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .panel-logo img {
+        max-height: 70px;
+    }
+}
+
+/* Ajustes para zoom */
+@media (min-resolution: 1dppx) and (max-resolution: 2dppx) {
+    .auth-container {
+        min-height: auto;
+    }
+    
+    .auth-form-panel {
+        min-height: 600px;
+    }
+}
+
+/* ================================================================
+   RESPONSIVE MÓVIL - Menú hamburguesa para navegación principal
+   ================================================================ */
+
+/* Botón hamburguesa - oculto en escritorio */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background 0.2s;
+    z-index: 1001;
+}
+.nav-hamburger:hover { background: rgba(0,73,118,0.08); }
+.nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--whirlpool-accomplished-blue, #004976);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Overlay oscuro para cerrar menú móvil */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 999;
+}
+.nav-overlay.open { display: block; }
+
+@media (max-width: 768px) {
+    .nav-hamburger { display: flex; }
+
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: white;
+        z-index: 1000;
+        padding: 70px 0 2rem;
+        overflow-y: auto;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .nav-menu.open { display: flex; }
+
+    .nav-menu .nav-link {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-bottom: 1px solid #f0f0f0;
+        color: var(--whirlpool-accomplished-blue, #004976);
+    }
+    .nav-menu .nav-link.active {
+        background: rgba(0,153,216,0.08);
+        color: var(--whirlpool-accent-blue, #0099D8);
+        border-left: 3px solid var(--whirlpool-accent-blue, #0099D8);
+    }
+
+    /* Asegurar que la topbar no quede aplastada */
+    .nav-container {
+        padding: 0.75rem 1rem;
+        flex-wrap: nowrap;
+    }
+    .brand-logo { height: 32px; }
+}
+
+@media (max-width: 480px) {
+    .nav-container { padding: 0.6rem 0.75rem; }
+}
+
+/* Dark mode support para menú móvil */
+[data-theme="dark"] .nav-menu {
+    background: #1a2332;
+}
+[data-theme="dark"] .nav-menu .nav-link {
+    color: rgba(255,255,255,0.85);
+    border-bottom-color: rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .nav-hamburger span {
+    background: rgba(255,255,255,0.85);
+}
+
+/* ================================================================
+   FIX HAMBURGER - v2: drawer desde arriba, hamburger siempre visible
+   ================================================================ */
+@media (max-width: 768px) {
+    /* El nav siempre visible encima de todo */
+    .main-nav {
+        position: fixed !important;
+        z-index: 1100 !important;
+    }
+
+    /* Hamburger: posición fija, siempre encima del menú */
+    .nav-hamburger {
+        position: relative;
+        z-index: 1200 !important;
+        order: 3;
+    }
+
+    /* El menú se despliega DEBAJO del navbar, no cubre toda la pantalla */
+    .nav-menu {
+        position: fixed !important;
+        top: 62px !important; /* altura del navbar */
+        left: 0 !important;
+        right: 0 !important;
+        bottom: auto !important;
+        padding: 0.5rem 0 1rem !important;
+        z-index: 1090 !important;
+        border-top: 2px solid var(--whirlpool-accent-blue, #0096DC);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.18) !important;
+    }
+
+    /* Overlay debajo del menú pero encima del contenido */
+    .nav-overlay {
+        z-index: 1080 !important;
+        top: 62px !important;
+    }
+
+    /* Asegurar que nav-container se vea bien en mobile */
+    .main-nav .nav-container {
+        display: flex !important;
+        grid-template-columns: unset !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0.75rem 1rem !important;
+        gap: 0.5rem !important;
+    }
+
+    /* nav-user/nav-actions al lado derecho antes del hamburger */
+    .nav-user, .nav-actions {
+        order: 2;
+    }
+    .nav-brand {
+        order: 1;
+        flex: 1;
+    }
+}
+
+/* ================================================================
+   FIX HAMBURGER v3 - compact menu links
+   ================================================================ */
+@media (max-width: 768px) {
+    .nav-menu .nav-link {
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.95rem !important;
+    }
+    .nav-menu {
+        padding: 0.25rem 0 0.5rem !important;
+    }
+}
+
+/* ================================================================
+   HAMBURGER DEFINITIVO - fixed al body, siempre visible
+   ================================================================ */
+
+/* En desktop: oculto */
+.nav-hamburger {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    /* Hamburger fijo en esquina superior derecha, siempre encima de todo */
+    .nav-hamburger {
+        display: flex !important;
+        position: fixed !important;
+        top: 12px !important;
+        right: 12px !important;
+        z-index: 9999 !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 5px !important;
+        background: white !important;
+        border: 1.5px solid var(--whirlpool-accomplished-blue, #003C64) !important;
+        cursor: pointer !important;
+        padding: 8px !important;
+        border-radius: 6px !important;
+        width: 38px !important;
+        height: 38px !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
+    }
+    .nav-hamburger span {
+        display: block !important;
+        width: 18px !important;
+        height: 2px !important;
+        background: var(--whirlpool-accomplished-blue, #003C64) !important;
+        border-radius: 2px !important;
+        transition: transform 0.28s, opacity 0.28s !important;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg) !important; }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0 !important; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg) !important; }
+
+    /* Menú dropdown debajo del navbar */
+    .nav-menu {
+        display: none !important;
+        position: fixed !important;
+        top: 58px !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: auto !important;
+        flex-direction: column !important;
+        padding: 0.25rem 0 0.75rem !important;
+        background: white !important;
+        z-index: 9990 !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
+        border-top: 2px solid var(--whirlpool-accent-blue, #0096DC) !important;
+    }
+    .nav-menu.open { display: flex !important; }
+
+    .nav-menu .nav-link {
+        width: 100% !important;
+        padding: 0.75rem 1.5rem !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+        color: var(--whirlpool-accomplished-blue, #003C64) !important;
+    }
+    .nav-menu .nav-link.active {
+        background: rgba(0,150,220,0.08) !important;
+        color: var(--whirlpool-accent-blue, #0096DC) !important;
+        border-left: 3px solid var(--whirlpool-accent-blue, #0096DC) !important;
+    }
+
+    /* Sin overlay - se cierra con click fuera del menú (JS) */
+    .nav-overlay { display: none !important; }
+
+    /* Links del menú siempre clickeables */
+    .nav-menu .nav-link {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+    }
+
+    /* Navbar: padding right para no solaparse con hamburger */
+    .nav-container {
+        padding-right: 56px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* Dark mode */
+    [data-theme="dark"] .nav-hamburger {
+        background: #1a2332 !important;
+        border-color: rgba(255,255,255,0.3) !important;
+    }
+    [data-theme="dark"] .nav-hamburger span {
+        background: rgba(255,255,255,0.85) !important;
+    }
+    [data-theme="dark"] .nav-menu {
+        background: #1a2332 !important;
+    }
+    [data-theme="dark"] .nav-menu .nav-link {
+        color: rgba(255,255,255,0.85) !important;
+        border-bottom-color: rgba(255,255,255,0.08) !important;
+    }
+}
